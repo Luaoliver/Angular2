@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() { }
+  id: any
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+    this.route.params.subscribe(parametros => {
+      if(parametros['id']){
+        this.id = parametros['id']
+        alert(this.id)
+      }
+    })
   }
 
 }

@@ -10,7 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'cadastro',
-    component: CadastroComponent
+    component: CadastroComponent,
+  },
+  {
+    path: 'cadastro/:id',
+    component: CadastroComponent,
   }
 ];
 
