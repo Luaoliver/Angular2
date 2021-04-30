@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import {DiasDaSemana} from './../dias-da-semana.enum';
+import {Produto} from './../objetos/produto';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,12 +17,16 @@ export class CadastroComponent implements OnInit {
   endereco: [string, number] = ['Rua teste numero: ', 4] //tuple array
   dia: DiasDaSemana = DiasDaSemana.qui
 
+  produto: Produto = new Produto('Cadeira', 900)
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+
+    this.produto.preco = this.produto.aplicarDesconto(950)
 
     this.route.params.subscribe(parametros => {
       if(parametros['id']){
