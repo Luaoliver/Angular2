@@ -12,7 +12,9 @@
             <th scope="row">{{item.id}}</th>
             <td>{{item.nome}}</td>
             <td>{{item.preco}}</td>
-            <td>Excluir</td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="excluirItem(item.id)">Excluir</button>
+            </td>
         </tr>
     </tbody>
 </table>
