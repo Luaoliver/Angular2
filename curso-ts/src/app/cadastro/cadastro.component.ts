@@ -17,7 +17,7 @@ export class CadastroComponent implements OnInit {
   endereco: [string, number] = ['Rua teste numero: ', 4] //tuple array
   dia: DiasDaSemana = DiasDaSemana.qui
 
-  produto: Produto = new Produto('Cadeira', 900)
+  produto: Produto = new Produto(1, 'Cadeira', 900)
 
   constructor(
     private route: ActivatedRoute,
