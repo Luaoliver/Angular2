@@ -28,6 +28,12 @@ export class CadastroComponent implements OnInit {
         this.id = parametros['id']
       }
     })
+
+    this.texto = this.retornarNome('João')
+  }
+
+  retornarNome = (nome: string): string => {
+    return `${nome} da Silva`
   }
 
 }
