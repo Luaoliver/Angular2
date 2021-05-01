@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from './../service/produto.service';
 import { Produto } from '../objetos/produto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,10 @@ export class HomeComponent implements OnInit {
   produtos: Array<Produto> = []
   carregarLoading: boolean = false
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(
+    private produtoService: ProdutoService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
@@ -34,6 +38,10 @@ export class HomeComponent implements OnInit {
 
     this.ngOnInit()
 
+  }
+
+  editar = (id: any) => {
+    this.router.navigate(['cadastro', id])
   }
 
 }

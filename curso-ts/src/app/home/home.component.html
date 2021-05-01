@@ -13,6 +13,9 @@
             <td>{{item.nome}}</td>
             <td>{{item.preco | currency:'BRL'}}</td>
             <td>
+                <button type="button" class="btn btn-warning" (click)="editar(item.id)">Editar</button>
+            </td>
+            <td>
                 <button type="button" class="btn btn-danger" (click)="excluirItem(item.id)">Excluir</button>
             </td>
         </tr>
