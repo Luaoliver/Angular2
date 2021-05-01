@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import {DiasDaSemana} from './../dias-da-semana.enum';
 import {Produto} from './../objetos/produto';
 import { ProdutoService } from './../service/produto.service';
 
@@ -17,14 +16,14 @@ export class CadastroComponent implements OnInit {
   produto: Produto = new Produto(0, '', 0)
 
   constructor(
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private prodService: ProdutoService
   ) { }
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(parametros => {
+    this.activatedRoute.params.subscribe(parametros => {
       if(parametros['id']){
         this.id = parametros['id']
       }
@@ -38,6 +37,8 @@ export class CadastroComponent implements OnInit {
       error => console.log('Deu ruim'),
       () => console.log('Requisição completa')
     )
+
+    this.router.navigate(['home'])
   }
 
 }
