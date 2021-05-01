@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import {DiasDaSemana} from './../dias-da-semana.enum';
 import {Produto} from './../objetos/produto';
+import { ProdutoService } from './../service/produto.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,7 +18,8 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private prodService: ProdutoService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,14 @@ export class CadastroComponent implements OnInit {
       }
     })
 
+  }
+
+  adicionar = () => {
+    this.prodService.adicionar(this.produto).subscribe(
+      sucess => console.log('Salvou'),
+      error => console.log('Deu ruim'),
+      () => console.log('Requisição completa')
+    )
   }
 
 }

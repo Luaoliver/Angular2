@@ -18,5 +18,9 @@ export class ProdutoService {
   excluirItem(id: any){
     return this.$http.delete(`${this.API}/${id}`)
   }
+
+  adicionar(prod: Produto){
+    return this.$http.post(this.API, prod)
+  }
   
 }

@@ -3,17 +3,23 @@
     {
       "id": 1,
       "nome": "Notebook i7",
-      "preco": 5500.10
+      "preco": 5500.1
     },
     {
       "id": 2,
       "nome": "Notebook i5",
-      "preco": 4500.00
+      "preco": 4500
     },
     {
       "id": 3,
       "nome": "Teclado",
       "preco": 99.99
+    },
+    {
+      "id": 4,
+      "nome": "Mouse",
+      "preco": "59.99",
+      "desconto": 10
     }
   ]
 }
