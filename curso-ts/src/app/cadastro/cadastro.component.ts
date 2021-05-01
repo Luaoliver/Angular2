@@ -12,12 +12,8 @@ import {Produto} from './../objetos/produto';
 export class CadastroComponent implements OnInit {
 
   id: any
-  texto: string = 'Teste' //variavel string
-  valor: number = 0 //variável number
-  endereco: [string, number] = ['Rua teste numero: ', 4] //tuple array
-  dia: DiasDaSemana = DiasDaSemana.qui
 
-  produto: Produto = new Produto(1, 'Cadeira', 900)
+  produto: Produto = new Produto(0, '', 0)
 
   constructor(
     private route: ActivatedRoute,
@@ -26,19 +22,12 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.produto.preco = this.produto.aplicarDesconto(950)
-
     this.route.params.subscribe(parametros => {
       if(parametros['id']){
         this.id = parametros['id']
       }
     })
 
-    this.texto = this.retornarNome('João')
-  }
-
-  retornarNome = (nome: string): string => {
-    return `${nome} da Silva`
   }
 
 }
