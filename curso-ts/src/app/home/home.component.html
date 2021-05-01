@@ -1,15 +1,24 @@
 <table class="table table-striped" *ngIf="carregarLoading; else carregando">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Preço</th>
+            <th scope="col" (click)="sort('id')">
+                #
+                <span *ngIf="key =='id'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
+            <th scope="col" (click)="sort('nome')">
+                Nome
+                <span *ngIf="key =='nome'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
+            <th scope="col" (click)="sort('preco')">
+                Preço
+                <span *ngIf="key =='preco'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
             <th scope="col">Editar</th>
             <th scope="col">Excluir</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of produtos">
+        <tr *ngFor="let item of produtos | orderBy: key : reverse; let i = index">
             <th scope="row">{{item.id}}</th>
             <td>{{item.nome}}</td>
             <td>{{item.preco | currency:'BRL'}}</td>

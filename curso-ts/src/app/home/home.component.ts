@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   produtos: Array<Produto> = []
   carregarLoading: boolean = false
 
+  key: string = 'nome'
+  reverse: boolean = false
+
   constructor(
     private produtoService: ProdutoService, 
     private router: Router
@@ -42,6 +45,11 @@ export class HomeComponent implements OnInit {
 
   editar = (id: any) => {
     this.router.navigate(['cadastro', id])
+  }
+
+  sort(key: any) {
+    this.key = key
+    this.reverse = !this.reverse
   }
 
 }

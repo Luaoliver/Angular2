@@ -53,3 +53,7 @@
     opacity: 1; 
   } 
 }
+
+thead>tr>th {
+  cursor: pointer;
+}
