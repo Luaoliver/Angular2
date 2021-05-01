@@ -24,7 +24,7 @@ export class ProdutoService {
   }
 
   editar(prod:  Produto){
-    return this.$http.put(this.API, prod)
+    return this.$http.put(`${this.API}/${prod.id}`, prod)
   }
 
   buscarItemID(id: any){

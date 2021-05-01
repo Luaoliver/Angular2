@@ -40,11 +40,10 @@ export class CadastroComponent implements OnInit {
   adicionar = () => {
     if(this.textoBotao == 'Salvar'){
       this.prodService.adicionar(this.produto).subscribe(
-        sucess => console.log('Salvou'),
+        sucess => this.navegar('home'),
         error => console.log('Deu ruim'),
         () => console.log('Requisição completa')
       )
-  
       this.router.navigate(['home'])
     } else {
       this.editar()
@@ -53,12 +52,14 @@ export class CadastroComponent implements OnInit {
 
   editar = () => {
     this.prodService.editar(this.produto).subscribe(
-      sucess => console.log('Editou'),
+      sucess => this.navegar('home'),
       error => console.log('Deu ruim'),
       () => console.log('Requisição completa')
     )
-
-    this.router.navigate(['home'])
+  }
+  
+  navegar = (rota: any) =>{
+    this.router.navigate([rota])
   }
 
 }

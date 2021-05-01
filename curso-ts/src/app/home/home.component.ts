@@ -22,10 +22,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.produtoService.listar().subscribe(prods => {
-      setTimeout(() => {
+      //setTimeout(() => {
         this.carregarLoading = true
         this.produtos = prods
-      }, 1000)
+      //}, 1000)
     })
   }
 
